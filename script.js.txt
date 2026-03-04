@@ -1,0 +1,67 @@
+const products = [
+  {
+    id: 1,
+    name: "FILA Classic Sneakers",
+    price: 55.99,
+    image: "https://static.fila.com/images/products/classic-sneakers.jpg"
+  },
+  {
+    id: 2,
+    name: "FILA Sports T-Shirt",
+    price: 24.99,
+    image: "https://static.fila.com/images/products/sports-tshirt.jpg"
+  },
+  {
+    id: 3,
+    name: "FILA Cap",
+    price: 15.99,
+    image: "https://static.fila.com/images/products/cap.jpg"
+  }
+];
+
+const cart = [];
+
+function renderProducts() {
+  const productsDiv = document.getElementById('products');
+  productsDiv.innerHTML = '<h2>Products</h2>';
+  products.forEach(product => {
+    const div = document.createElement('div');
+    div.className = 'product';
+    div.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/80x80'"/>
+      <div>
+        <h3>${product.name}</h3>
+        <p>$${product.price.toFixed(2)}</p>
+        <button onclick="addToCart(${product.id})">Add to Cart</button>
+      </div>
+    `;
+    productsDiv.appendChild(div);
+  });
+}
+
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  cart.push(product);
+  renderCart();
+}
+
+function renderCart() {
+  const cartUl = document.getElementById('cart-items');
+  cartUl.innerHTML = '';
+  cart.forEach((item, idx) => {
+    const li = document.createElement('li');
+    li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+    cartUl.appendChild(li);
+  });
+}
+
+function checkout() {
+  alert('Thank you for your purchase!');
+  cart.length = 0;
+  renderCart();
+}
+
+window.onload = function() {
+  renderProducts();
+  renderCart();
+};
