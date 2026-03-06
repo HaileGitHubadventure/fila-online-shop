@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Remove basePath for Netlify
+  output: 'export', // <--- THIS IS THE KEY LINE
   images: {
-    unoptimized: true,
+    unoptimized: true, // Required for static export
   },
 };
 
