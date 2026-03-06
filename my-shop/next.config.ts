@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Add this line below - it must match your repository name exactly
+  // Add this line exactly as shown:
   basePath: '/fila-online-shop', 
 };
 
