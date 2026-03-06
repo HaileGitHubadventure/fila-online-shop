@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',      // This is the fix! It creates the 'out' folder
+  output: 'export',
   images: {
-    unoptimized: true,   // Required for GitHub Pages
+    unoptimized: true,
   },
+  // Add this line below - it must match your repository name exactly
+  basePath: '/fila-online-shop', 
 };
 
 export default nextConfig;
