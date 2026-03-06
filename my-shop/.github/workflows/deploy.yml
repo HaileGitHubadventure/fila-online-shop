@@ -21,4 +21,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist # Change this to 'out' or 'build' depending on your framework
-          branch: gh-pages
+          branch: gh-pagesgit add .
